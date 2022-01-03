@@ -1,1 +1,1 @@
-web: gunicorn Passwordscape:wsgi
+web: gunicorn Passwordscape.wsgi
