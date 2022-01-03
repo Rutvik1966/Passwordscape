@@ -1,0 +1,41 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'mysite/style/contactus.css' %}">
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<div class="container shadow-sm p-3 mb-5 bg-white rounded" data-aos="fade-up">
+    <div class="wrapper rounded d-flex align-items-stretch">
+        <div class="bg-yellow">
+            <div class="text-white"><span class="far fa-envelope"></span></div>
+            <div class="pt-5 cursive"> Please describe your product idea in a nutshell</div>
+            <div class="pt-sm-5 pt-5 cursive mt-sm-5"> We need your email to reach you back</div>
+        </div>
+        <div class="contact-form" id="contactus">
+            <div class="h3">Contact Us</div>
+            <form action="{% url 'contactus' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group pt-3"><label for="message">Message</label> <textarea name="message"
+                                                                                            class="form-control"
+                                                                                            required></textarea></div>
+                <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
+                    <div class="form-group pt-lg-2 pt-3"><label for="name">Your Name</label> <input type="text"
+                                                                                                    name="name"
+                                                                                                    class="form-control"
+                                                                                                    required></div>
+                    <div class="form-group pt-lg-2 pt-3"><label for="name">Your Email</label> <input type="email"
+                                                                                                     name="emails"
+                                                                                                     class="form-control"
+                                                                                                     required></div>
+                </div>
+                <div class="d-flex align-items-center flex-wrap justify-content-between pt-lg-5 mt-lg-4 mt-5">
+                    <div class="btn btn-default"> Cancel</div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

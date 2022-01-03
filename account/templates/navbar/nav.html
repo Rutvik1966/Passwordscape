@@ -1,0 +1,31 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="{% url 'home' %}" class="navbar-brand">
+            <img src="{% static 'mysite/image/logo.png' %}" height="28" alt=""> Passwordscape
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon" style="color: black"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#features" class="nav-item nav-link active">Features</a>
+                <a href="{% url 'login' %}" class="nav-item nav-link active">Profile</a>
+                <a href="#contactus" class="nav-item nav-link active">Contact Us</a>
+                <a href="{% url 'hw' %}" class="nav-item nav-link active" tabindex="-1">Password Generator</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <button class="btn " type="button"><a style="text-decoration:none;color: #683741"
+                                                          href="{% url 'logout' %}">Logout</a></button>
+                {% else %}
+                    <button class="btn " type="button"><a style="text-decoration:none;color: #683741"
+                                                          href="{% url 'login' %}">Login</a></button>
+                    <button class="btn" type="button"><a style="text-decoration:none;color: #683741"
+                                                         href="{% url 'signup' %}">Signup</a></button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
